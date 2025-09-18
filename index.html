@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hariraj V | Student Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f0f0f0;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 2rem 1rem 6rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-picture {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      position: absolute;
+      bottom: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: white;
+      padding: 1rem;
+      margin-top: 80px;
+      gap: 1rem;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .tabs button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #eee;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .tabs button.active {
+      background: #6a11cb;
+      color: white;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      background: #6a11cb;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    .dark-mode section {
+      background: #1e1e1e;
+    }
+
+    .dark-mode header,
+    .dark-mode footer {
+      background: #333;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+      transition: 0.3s ease;
+    }
+
+    .dark-mode .dark-toggle {
+      background: #444;
+      color: white;
+    }
+
+    /* Certificate card style */
+    .certificate-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .certificate-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .certificate-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .certificate-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 0.3rem;
+    }
+
+    button[type="submit"] {
+      padding: 0.6rem 1.2rem;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #formSuccess {
+      color: green;
+      font-weight: bold;
+      display: none;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem 5rem;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+
+      .profile-picture {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+<header>
+  <h1>Hariraj V</h1>
+  <p><i>II YEAR BCA Student</i></p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="About">About</button>
+  <button class="tab-btn" data-tab="Skills">Skills</button>
+  <button class="tab-btn" data-tab="Certificates">Certificates</button>
+  <button class="tab-btn" data-tab="Contact">Contact</button>
+</div>
+
+<section id="About" class="active">
+  <h2>About Me</h2>
+  <p>
+    I'm a passionate second-year BCA student with a keen interest in software development, web technologies, and solving real-world problems through code. I'm always eager to learn, collaborate, and contribute meaningfully to any tech environment I’m a part of.
+  </p>
+</section>
+
+<section id="Skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>Python Programming</li>
+    <li>C++</li>
+    <li>Data Structures & Algorithms</li>
+    <li>HTML, CSS, JavaScript</li>
+    <li>Responsive Web Design</li>
+  </ul>
+</section>
+
+<section id="Certificates">
+  <h2>Certificates</h2>
+  <div class="certificate-grid">
+    <div class="certificate-card">
+      <a href="https://skills.yourlearning.ibm.com/certificate/share/a7909b4e0bewogICJvYmplY3RJZCIgOiAiUExBTi04NzQ5QzAyQTc4RUMiLAogICJsZWFybmVyQ05VTSIgOiAiNDg0NjYxMlJFRyIsCiAgIm9iamVjdFR5cGUiIDogIkFDVElWSVRZIgp943f518e113-10" target="_blank">
+        <img src="./ibmcert.png" alt="IBM Certificate">
+      </a>
+      <p>Fundamentals of Web Development - IBM</p>
+    </div>
+    <!-- More certificates can be added here -->
+  </div>
+</section>
+
+<section id="Contact">
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <div style="margin-bottom: 1rem;">
+      <label for="name">Your Name</label><br>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="email">Your Email</label><br>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="formSuccess">✅ Your message has been sent successfully!</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Hariraj V. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('section');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.tab-btn.active').classList.remove('active');
+      btn.classList.add('active');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  // Contact form submission
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    this.reset(); // Clear the form
+    const successMessage = document.getElementById("formSuccess");
+    successMessage.style.display = "block";
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 4000);
+  });
+</script>
+
+</body>
+</html>
